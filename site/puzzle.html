@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Личный сайт студента GeekBrains</title>
+	<link rel="stylesheet" href="style.css"> 
+	<script type="text/javascript">
+
+		var score = 0;
+
+		function checkAnswer(inputId, answers){
+			var userAnswer = document.getElementById(inputId).value;
+			userAnswer = userAnswer.toLowerCase();
+			for(var i = 0; i < answers.length; i++){
+				if(userAnswer == answers[i]){
+					score++;
+					break;
+				}
+			}
+		}
+		
+		function checkAnswers() {
+
+			checkAnswer("userAnswer1", ["соль", "цирк"]);
+			checkAnswer("userAnswer2", ["деньги", "рубль"]);
+			checkAnswer("userAnswer3", ["1", "один"]);
+			checkAnswer("userAnswer4", ["мяч", "мячик"]);
+
+			alert("Вы отгадали " + score + " загадок");
+		}
+	</script>
+</head>
+<body>
+
+	<div class="content">
+		<div class="header">
+			<a href="index.html">Главная</a>
+			<a href="puzzle.html">Загадки</a>
+			<a href="guess.html">Угадайка</a>
+			<a href="guessMP.html">Угадайка мультиплеер</a>
+			<a href="gpass.html">Генератор случайных паролей</a>
+		</div>
+
+		<div class="contentWrap">
+		    <div class="content">
+		        <div class="center">
+
+					<h1>Игра в загадки</h1>
+
+					<div class="box">
+
+						<p>Какое слово дополнит следующий набор слов: Пляс, Река, Тмин, Сила, Удод, Фаза?</p>
+						<input type="text" id="userAnswer1">
+
+						<p>Москва - 100, Ярославль - 1000, Архангельск - 500. О чём речь?</p>
+						<input type="text" id="userAnswer2">
+
+						<p>Сколько фруктов можно съесть натощак?</p>
+						<input type="text" id="userAnswer3">
+
+						<p>Упадет - поскачет, Ударишь - не плачет.</p>
+						<input type="text" id="userAnswer4">
+
+						<br>
+						<a href="#" onClick="checkAnswers();">Ответить</a>
+					</div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+
+	<div class="footer">
+		Copyright &copy; Aleksandr Kurzanov
+	</div>
+</body>
+</html>

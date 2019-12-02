@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Личный сайт студента GeekBrains</title>
+	<link rel="stylesheet" href="style.css"> 
+	<script type="text/javascript">
+
+		function readInt(){
+			var longPass = document.getElementById("userPassword").value;
+			return parseInt(longPass);
+			// return +document.getElementById("userAnswer").value;
+		}
+
+		function write(text){
+			document.getElementById("info").innerHTML = text;
+		}
+		function generatePassword() {
+		    	var userPassword = readInt();
+		    	var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		        var newPass = "";
+		    for (var i = 0, n = charset.length; i < userPassword; i++) {
+		        newPass += charset.charAt(Math.floor(Math.random() * n));
+		    }    
+		    	write("Ваш пароль сгенерирован: " + newPass);
+		}		    	
+	</script>
+</head>
+<body>
+
+	<div class="content">
+		<div class="header">
+			<a href="index.html">Главная</a>
+			<a href="puzzle.html">Загадки</a>
+			<a href="guess.html">Угадайка</a>
+			<a href="guessMP.html">Угадайка мультиплеер</a>
+			<a href="gpass.html">Генератор случайных паролей</a>
+		</div>
+
+		<div class="contentWrap">
+		    <div class="content">
+		        <div class="center">
+
+					<h1>Генератор случайных паролей</h1>
+
+					<div class="box">
+
+						<p id="info">Введите желаемое количество символов в пароле.</p>
+						<input type="text" id="userPassword">
+						<br>
+						<a href="#" onClick="generatePassword();" id="button">Начать</a>	
+					</div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+
+	<div class="footer">
+		Copyright &copy; Aleksandr Kurzanov
+	<div>
+</body>
+</html>

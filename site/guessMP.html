@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Личный сайт студента GeekBrains</title>
+	<link rel="stylesheet" href="style.css"> 
+	<script type="text/javascript">
+
+		var answer = parseInt(Math.random() * 100);
+		var tryCount = 0;
+		var maxTryCount = 3;
+
+		function readInt(playerNumber){
+			var number = document.getElementById("userAnswer").value;
+			var num = document.getElementById("pl").value;
+			
+			if(playerNumber == 1)
+				return parseInt(num);
+			else
+				return parseInt(number);
+		}
+
+		function write(text){
+			document.getElementById("info").innerHTML = text;
+			document.getElementById("info2").innerHTML = text;
+		}
+
+		function hide(id){
+			document.getElementById(id).style.display = "none";
+		}
+
+		function guess(){
+			tryCount++;
+			var playerNumber = 1;
+			var userAnswer = readInt(playerNumber);
+			if(userAnswer == answer){
+				write("<b>Поздравляю, вы угадали!</b>");
+				hide("button");
+				hide("userAnswer")
+				hide("pl");
+			} else if(tryCount >= maxTryCount){
+				write("Вы проиграли<br>Правильный ответ: " + answer);
+				hide("button");
+				hide("userAnswer");
+				hide("pl")
+			} else if(userAnswer > answer){
+				write("Вы ввели слишком большое число<br>Попробуйте еще раз. Введите число от 1 до 100");
+			} else if(userAnswer < answer){
+				write("Вы ввели слишком маленькое число<br>Попробуйте еще раз. Введите число от 1 до 100");				
+			}
+		}
+	</script>
+</head>
+<body>
+
+<div class="content">
+	<div class="header">
+		<a href="index.html">Главная</a>
+		<a href="puzzle.html">Загадки</a>
+		<a href="guess.html">Угадайка</a>
+		<a href="guessMP.html">Угадайка мультиплеер</a>
+		<a href="gpass.html">Генератор случайных паролей</a>
+	</div>
+
+	<div class="contentWrap">
+	    <div class="content">
+	        <div class="center">
+
+				<h1>Игра угадайка</h1>
+
+				<div class="box">
+
+					<p id="info">Первый игрок, угадайте число от 0 до 100</p>
+					<input type="text" id="userAnswer">
+					<br>
+					<p id="info2">Второй игрок, угадайте число от 0 до 100</p>
+					<input type="text" id="pl">
+					<br>
+					<a href="#" onClick="guess();" id="button">Начать</a>		
+				</div>
+	        </div>
+	    </div>
+	</div>
+</div>
+	<div class="footer">
+		Copyright &copy; Aleksandr Kurzanov
+	<div>
+</body>
+</html>
